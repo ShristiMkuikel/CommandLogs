@@ -1,10 +1,11 @@
 import json
+import math
 
 # get input json file location from user
 filelocation=input("Please enter input.json file location:")
 file = open(filelocation, 'r')
 inputJson = json.load(file)
-
+lengthOfData = len(inputJson)
 dataset = []
 UserList = []
 times = []
@@ -60,6 +61,8 @@ with open("output.json", 'w') as outputfile:  # creating output.json file to dum
 # prints all the red, yellow, blue, green commands for the particular user
 # Prints the total number of red, yellow, blue, green commands sent by the user
 def UserLookup(outputfile, username):
+
+    print(lengthOfData)
     for n in outputfile:
         for key, value in n.items():
             if key == username:
@@ -68,6 +71,9 @@ def UserLookup(outputfile, username):
                 valueitems = value
                 for key, value in valueitems.items():
                     print(key, ": ", len(value))  # prints total commands
+                    percentage=(((len(value))/lengthOfData)*100)
+                    f=round(percentage,2)
+                    print(" Total Percent",key," logs created: ",f,"%")
 
 
 # Create individual user logs
