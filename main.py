@@ -62,7 +62,7 @@ with open("output.json", 'w') as outputfile:  # creating output.json file to dum
 # Prints the total number of red, yellow, blue, green commands sent by the user
 def UserLookup(outputfile, username):
 
-    print(lengthOfData)
+    print("Total number of logs in the input file:",lengthOfData)
     for n in outputfile:
         for key, value in n.items():
             if key == username:
